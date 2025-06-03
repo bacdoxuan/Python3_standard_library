@@ -1,8 +1,7 @@
 import re
 
-text = 'abbaaabbbbaaaaa'
-pattern = 'ab'
+text = "abbaaabbbbaaaaa"
+pattern = "ab"
 
 for match in re.findall(pattern, text):
-    print('Found {}'.format(match))
-
+    print("Found {}".format(match))

@@ -18,6 +18,7 @@ $ End of string, or line
 
 import re
 
+
 def test_patterns(text, patterns):
     """Given source text and a list of patterns, look for
     matches for each pattern within the text and print
@@ -32,19 +33,24 @@ def test_patterns(text, patterns):
             s = match.start()
             e = match.end()
             substr = text[s:e]
-            n_backslashes = text[:s].count('\\')
-            prefix = '.' * (s + n_backslashes)
-            print("  {}'{}' (number of . : {})".format(prefix, substr, prefix.count('.')))
+            n_backslashes = text[:s].count("\\")
+            prefix = "." * (s + n_backslashes)
+            print(
+                "  {}'{}' (number of . : {})".format(prefix, substr, prefix.count("."))
+            )
         print()
     return
 
+
 # print("Greedy:")
 test_patterns(
-    'abbaaabbbbaabaaabaaaab',
-    [('a(ab)', 'a followed by literal ab'),
-    ('a(ab)?', 'a followed by literal ab - non greedy'),
-    ('a(a*b*)', 'a followed by 0-n a and 0-n b'),
-    ('a(a*b*)?', 'a followed by 0-n a and 0-n b - non greedy'),
-    ('a(ab)*', 'a followed by 0-n ab'),
-    ('a(ab)+', 'a followed by 1-n ab')],
+    "abbaaabbbbaabaaabaaaab",
+    [
+        ("a(ab)", "a followed by literal ab"),
+        ("a(ab)?", "a followed by literal ab - non greedy"),
+        ("a(a*b*)", "a followed by 0-n a and 0-n b"),
+        ("a(a*b*)?", "a followed by 0-n a and 0-n b - non greedy"),
+        ("a(ab)*", "a followed by 0-n ab"),
+        ("a(ab)+", "a followed by 1-n ab"),
+    ],
 )
